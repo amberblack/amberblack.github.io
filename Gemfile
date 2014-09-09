@@ -14,4 +14,7 @@ gem "wdm", "~> 0.1.0", :platforms => [:mswin, :mingw]
 gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 # GitHub Pages
-gem 'middleman-gh-pages'
+gem "middleman-gh-pages"
+
+# Middleman blog
+gem "middleman-blog"
