@@ -1,0 +1,21 @@
+{
+  "title": "amber elisabeth black",
+  "url": "https://ambl.ac",
+  "language": "en",
+  "description": "Awk hobbit.",
+  "feed": {
+    "subtitle": "It's me, Amber.",
+    "filename": "feed.xml",
+    "path": "/feed/feed.xml",
+    "id": "https://example.com/"
+  },
+  "jsonfeed": {
+    "path": "/feed/feed.json",
+    "url": "https://example.com/feed/feed.json"
+  },
+  "author": {
+    "name": "Amber Black",
+    "email": "youremailaddress@example.com",
+    "url": "https://example.com/about-me/"
+  }
+}
