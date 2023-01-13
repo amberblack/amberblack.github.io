@@ -1,6 +1,16 @@
 /* Defaults */
+
+@font-face {
+  font-family: "ShipsWhistle-Regular";
+  src: 
+    url("fonts/ShipsWhistle-Regular.woff2") format("woff2"),
+    url("fonts/ShipsWhistle-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --font-family: -apple-system, system-ui, sans-serif;
+  --font-family: "ShipsWhistle-Regular", -apple-system, system-ui, sans-serif;
   --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
@@ -42,6 +52,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-family);
+  font-size: 5vw;
   color: var(--text-color);
   background-color: var(--background-color);
 }
