@@ -9,29 +9,48 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "ShipsWhistle-Bold";
+  src: 
+    url("fonts/ShipsWhistle-Bold.woff2") format("woff2"),
+    url("fonts/ShipsWhistle-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "VaultAlarm-Regular";
+  src: 
+    url("fonts/VaultAlarm-Regular.woff2") format("woff2"),
+    url("fonts/VaultAlarm-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --font-family: "ShipsWhistle-Regular", -apple-system, system-ui, sans-serif;
-  --font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+  --font-family: "IBM Plex Sans", -apple-system, system-ui, sans-serif;
+  --font-family-display: "VaultAlarm-Regular", -apple-system, system-ui, sans-serif;
+  --font-family-monospace: "IBM Plex Mono", Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
 /* Theme colors */
 :root {
-  --color-gray-20: #e0e0e0;
-  --color-gray-50: #C0C0C0;
-  --color-gray-90: #333;
+  --color-weak: #e5ddcf;
+  --color-medium: #c4b7a0;
+  --color-strong: #7f7769;
 
-  --background-color: #fff;
+  --background-color: #faf8f5;
 
-  --text-color: var(--color-gray-90);
-  --text-color-link: #082840;
-  --text-color-link-visited: #17050F;
+  --text-color: var(--color-strong);
+  --text-color-link: #fcb316;
+  --text-color-link-visited: #f2634b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-gray-20: #e0e0e0;
-    --color-gray-50: #C0C0C0;
-    --color-gray-90: #dad8d8;
+    --color-weak: #e0e0e0;
+    --color-medium: #C0C0C0;
+    --color-strong: #dad8d8;
 
     /* --text-color is assigned to --color-gray-_ above */
     --text-color-link: #1493fb;
@@ -52,10 +71,22 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-family);
-  font-size: 5vw;
+  font-size: 3vmin;
+  font-weight: 200;
   color: var(--text-color);
   background-color: var(--background-color);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+}
+
+h1 { font-size: 14.5vmin; }
+h2 { font-size: 11.1vmin; }
+h3 { font-size: 8.6vmin; }
+h4 { font-size: 6.6vmin; }
+h5 { font-size: 5.0vmin; }
+h6 { font-size: 3.9vmin; }
 
 p:last-child {
   margin-bottom: 0;
@@ -84,7 +115,7 @@ main :first-child {
   margin-top: 0;
 }
 header {
-  border-bottom: 1px dashed var(--color-gray-20);
+  border-bottom: 1px dashed var(--color-weak);
 }
 header:after {
   content: "";
@@ -101,12 +132,14 @@ table th {
 }
 
 pre,
-code {
+code,
+code[class*="language-"], 
+pre[class*="language-"] {
   font-family: var(--font-family-monospace);
-  line-height: 1.5;
+  font-size: 1em;
+  font-weight: 400;
 }
 pre {
-  font-size: 14px;
   line-height: 1.375;
   direction: ltr;
   text-align: left;
@@ -124,6 +157,7 @@ pre {
   background-color: #f6f6f6;
 }
 code {
+  line-height: 1.5;
   word-break: break-all;
 }
 
@@ -179,7 +213,7 @@ code {
 .postlist-date,
 .postlist-item:before {
   font-size: 0.8125em; /* 13px /16 */
-  color: var(--color-gray-90);
+  color: var(--color-strong);
 }
 .postlist-date {
   word-spacing: -0.5px;
@@ -211,8 +245,8 @@ code {
   margin-left: 0.6666666666667em; /* 8px /12 */
   margin-top: 0.5em; /* 6px /12 */
   margin-bottom: 0.5em; /* 6px /12 */
-  color: var(--color-gray-90);
-  border: 1px solid var(--color-gray-50);
+  color: var(--color-strong);
+  border: 1px solid var(--color-medium);
   border-radius: 0.25em; /* 3px /12 */
   text-decoration: none;
   line-height: 1.8;
@@ -223,7 +257,7 @@ a[href].post-tag:visited {
 }
 a[href].post-tag:hover,
 a[href].post-tag:focus {
-  background-color: var(--color-gray-20);
+  background-color: var(--color-weak);
 }
 .postlist-item > .post-tag {
   align-self: center;
@@ -241,7 +275,7 @@ a[href].post-tag:focus {
 
 .infobox {
   background-color: var(--color-infobox);
-  color: var(--color-gray-90);
+  color: var(--color-strong);
   padding: 1em 0.625em; /* 16px 10px /16 */
 }
 .infobox ol:only-child {
@@ -263,5 +297,5 @@ a[href].direct-link:focus,
 a[href].direct-link:focus:visited,
 :hover > a[href].direct-link,
 :hover > a[href].direct-link:visited {
-  color: #aaa;
+  color: var(--color-medium);
 }
