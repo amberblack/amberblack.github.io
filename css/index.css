@@ -2,7 +2,7 @@
 
 :root {
   --font-family: "IBM Plex Sans", -apple-system, system-ui, sans-serif;
-  --font-family-display: "Fredoka One", cursive;
+  --font-family-display: "Fredoka", cursive;
   --font-family-monospace: "IBM Plex Mono", Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
@@ -11,6 +11,7 @@
   --color-weak: #e5ddcf;
   --color-medium: #c4b7a0;
   --color-strong: #7f7769;
+  --color-accent: #f2634b;
 
   --background-color: #faf8f5;
 
@@ -18,7 +19,6 @@
   --text-color-link: #fcb316;
   --text-color-link-hover: #4d4840;
   --text-color-link-visited: #e38c00;
-  --text-color-accent: #f2634b;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,8 +30,6 @@
     /* --text-color is assigned to --color-gray-_ above */
     --text-color-link: #1493fb;
     --text-color-link-visited: #a6a6f8;
-    --text-color-accent: #f2634b;
-
     --background-color: #15202b;
   }
 }
@@ -47,20 +45,20 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-family);
-  font-size: 3vw;
+  font-size: 3vmin;
   font-weight: 200;
   color: var(--text-color);
   background-color: var(--background-color);
 }
 
 ::selection {
-  background: var(--text-color-accent);
+  background: var(--color-accent);
   color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-display);
-  font-weight: normal;
+  font-weight: 600;
 }
 
 h1 { font-size: 14.5vw; }
@@ -98,7 +96,7 @@ a[href]:visited {
 }
 
 main {
-  padding: 1rem;
+  padding: 4vw;
 }
 
 main :first-child {
@@ -161,8 +159,8 @@ code {
 /* Header */
 
 .home {
-  padding: 0 1rem;
-  margin: 1rem 0; /* 16px /16 */
+  padding: 0 2vw;
+  margin: 2vw 0;
   font-size: 4vw;
 }
 
@@ -175,31 +173,34 @@ code {
 /* Nav */
 
 .nav {
+  display: flex;
   font-family: var(--font-family-display);
+  font-weight: 500;
   padding: 0;
   list-style: none;
   margin-left: 1em;
 }
 
 .nav-item {
-  display: inline-block;
-  margin-right: 1em;
-}
-
-.nav-item a[href] {
-  color: var(--color-medium);
-  text-decoration-thickness: 2vw;
+  color: var(--color-weak);
+  margin-right: 2vw;
+  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.4vw;
   transition: text-decoration-thickness 300ms, color 200ms;
 }
 
-.nav-item a[href]:not(:hover) {
-  text-decoration: overline;
-  text-decoration-thickness: 0;
+.nav-item:hover {
+  color: var(--color-accent);
+  text-decoration-thickness: 1vw;
 }
 
 .nav-item-active {
-  text-decoration: underline;
-  text-decoration-thickness: 1vw;
+  color: var(--color-medium);
+}
+
+.nav-item a[href] {
+  text-decoration: none;
 }
 
 
@@ -233,11 +234,12 @@ code {
   word-spacing: -0.5px;
 }
 .postlist-link {
+  font-family: var(--font-family-display);
   padding-left: .25em;
   padding-right: .25em;
   text-underline-position: from-font;
   text-underline-offset: 0;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 0.4vw;
 }
 .postlist-item-active .postlist-link {
   font-weight: bold;
@@ -256,7 +258,7 @@ code {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 2vw; /* 12px /16 */
+  font-size: 1.6vw;
   font-weight: 600;
   padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
   margin-left: 0.6666666666667em; /* 8px /12 */
@@ -276,8 +278,8 @@ a[href].post-tag:visited {
 
 a[href].post-tag:hover,
 a[href].post-tag:focus {
-  background-color: var(--text-color-accent);
-  border-color: var(--text-color-accent);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
   color: white;
 }
 
