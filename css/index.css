@@ -1,4 +1,6 @@
+/* ---------------------------------------------------------------------- */
 /* Defaults */
+/* ---------------------------------------------------------------------- */
 
 :root {
   --font-family: "IBM Plex Sans", -apple-system, system-ui, sans-serif;
@@ -6,14 +8,21 @@
   --font-family-monospace: "IBM Plex Mono", Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
+
+
+
+/* ---------------------------------------------------------------------- */
 /* Theme colors */
+/* ---------------------------------------------------------------------- */
+
 :root {
   --color-weak: #e5ddcf;
   --color-medium: #c4b7a0;
   --color-strong: #7f7769;
+  
   --color-accent: #f2634b;
 
-  --background-color: #faf8f5;
+  --background-color: #f9f6f2;
 
   --text-color: var(--color-strong);
   --text-color-link: #fcb316;
@@ -27,15 +36,20 @@
     --color-medium: #C0C0C0;
     --color-strong: #dad8d8;
 
-    /* --text-color is assigned to --color-gray-_ above */
     --text-color-link: #1493fb;
     --text-color-link-visited: #a6a6f8;
+
     --background-color: #15202b;
   }
 }
 
 
+
+
+/* ---------------------------------------------------------------------- */
 /* Global stylesheet */
+/* ---------------------------------------------------------------------- */
+
 * {
   box-sizing: border-box;
 }
@@ -45,28 +59,37 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-family);
-  font-size: 3vmin;
+  font-size: 3vw;
   font-weight: 200;
   color: var(--text-color);
   background-color: var(--background-color);
 }
+
+
+/* Selection highlight */
+/* ---------------------------------------------------------------------- */
 
 ::selection {
   background: var(--color-accent);
   color: white;
 }
 
+
+/* Text and links */
+/* ---------------------------------------------------------------------- */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-display);
   font-weight: 600;
+  line-height: 1.15;
 }
 
-h1 { font-size: 14.5vw; }
-h2 { font-size: 11.1vw; }
-h3 { font-size: 8.6vw; }
-h4 { font-size: 6.6vw; }
-h5 { font-size: 5.0vw; }
-h6 { font-size: 3.9vw; }
+h1 { font-size: 3.8rem; }
+h2 { font-size: 3.1rem; }
+h3 { font-size: 2.4rem; }
+h4 { font-size: 2.0rem; }
+h5 { font-size: 1.6rem; }
+h6 { font-size: 1.3rem; }
 
 p:last-child {
   margin-bottom: 0;
@@ -75,7 +98,7 @@ p:last-child {
 p,
 .tmpl-post li,
 img {
-  max-width: 37.5em; /* 600px /16 */
+  max-width: 75vw;
 }
 
 p,
@@ -95,8 +118,12 @@ a[href]:visited {
   color: var(--text-color-link-visited);
 }
 
+
+/* Sections */
+/* ---------------------------------------------------------------------- */
+
 main {
-  padding: 4vw;
+  padding: 10vw;
 }
 
 main :first-child {
@@ -105,12 +132,18 @@ main :first-child {
 
 header {
   align-items: flex-start;
-  border-bottom: 0.4vw dashed var(--color-weak);
+  background-color: var(--color-medium);
+  border-bottom: 1.4vw solid var(--color-weak);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 8vw;
   justify-content: space-between;
 }
+
+
+/* Tables */
+/* ---------------------------------------------------------------------- */
 
 table {
   margin: 1em 0;
@@ -120,6 +153,10 @@ table td,
 table th {
   padding-right: 1em;
 }
+
+
+/* Code */
+/* ---------------------------------------------------------------------- */
 
 pre,
 code,
@@ -155,35 +192,87 @@ code {
 }
 
 
+/* Breakpoint */
+/* ---------------------------------------------------------------------- */
 
-/* Header */
+@media only screen and (max-width: 700px){
+  
+  html,
+  body {
+    font-size: 5vw;
+  }
+
+  header {
+    height: 10vw;
+  }  
+}
+
+@media only screen and (min-width: 701px) and (max-width: 900px){
+
+  html,
+  body {
+    font-size: 4vw;
+  }
+
+  header {
+    height: 9vw;
+  }
+}
+
+
+
+
+/* ---------------------------------------------------------------------- */
+/* Logo and Nav */
+/* ---------------------------------------------------------------------- */
 
 .home {
-  padding: 0 2vw;
-  margin: 2vw 0;
-  font-size: 4vw;
-}
-
-.home :link:not(:hover) {
-  text-decoration: none;
+  padding: 0 4vw;
+  margin: 0;
 }
 
 
+/* Logo */
+/* ---------------------------------------------------------------------- */
 
-/* Nav */
+.home svg {
+  height: fit-content;
+  margin-top: -5vw;
+  transition: transform 0.2s ease-in-out;
+  width: 25vw;
+}
+
+.home svg .face {
+  transition: fill 0.4s 0.4s ease-in;
+}
+
+.home:hover svg {
+  transform: scale(0.9);
+}
+
+.home:hover svg .face {
+  fill: var(--color-accent);
+}
+
+
+/* Navigation */
+/* ---------------------------------------------------------------------- */
 
 .nav {
+  align-items: center;
   display: flex;
-  font-family: var(--font-family-display);
-  font-weight: 500;
-  padding: 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  height: inherit;
   list-style: none;
-  margin-left: 1em;
+  margin: -0.7vw 0 0 0;
+  padding: 0;
+  text-transform: uppercase;
 }
 
 .nav-item {
   color: var(--color-weak);
-  margin-right: 2vw;
+  margin-right: 4vw;
   text-decoration: none;
   text-decoration: underline;
   text-decoration-thickness: 0.4vw;
@@ -196,21 +285,26 @@ code {
 }
 
 .nav-item-active {
-  color: var(--color-medium);
+  color: var(--color-strong);
 }
 
 .nav-item a[href] {
+  color: white;
   text-decoration: none;
 }
 
 
 
+
+/* ---------------------------------------------------------------------- */
 /* Posts list */
+/* ---------------------------------------------------------------------- */
 
 .postlist {
   list-style: none;
   padding: 0;
 }
+
 .postlist-item {
   display: flex;
   flex-wrap: wrap;
@@ -218,6 +312,7 @@ code {
   counter-increment: start-from -1;
   line-height: 1.8;
 }
+
 .postlist-item:before {
   display: inline-block;
   pointer-events: none;
@@ -225,14 +320,17 @@ code {
   line-height: 100%;
   text-align: right;
 }
+
 .postlist-date,
 .postlist-item:before {
   font-size: 0.8125em; /* 13px /16 */
   color: var(--color-strong);
 }
+
 .postlist-date {
   word-spacing: -0.5px;
 }
+
 .postlist-link {
   font-family: var(--font-family-display);
   padding-left: .25em;
@@ -241,9 +339,11 @@ code {
   text-underline-offset: 0;
   text-decoration-thickness: 0.4vw;
 }
+
 .postlist-item-active .postlist-link {
   font-weight: bold;
 }
+
 .tmpl-home .postlist-link {
   font-size: 1.1875em; /* 19px /16 */
   font-weight: 700;
@@ -251,14 +351,17 @@ code {
 
 
 
+
+/* ---------------------------------------------------------------------- */
 /* Tags */
+/* ---------------------------------------------------------------------- */
 
 .post-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  font-size: 1.6vw;
+  font-size: 0.6em;
   font-weight: 600;
   padding: 0.08333333333333em 0.3333333333333em; /* 1px 4px /12 */
   margin-left: 0.6666666666667em; /* 8px /12 */
@@ -289,7 +392,10 @@ a[href].post-tag:focus {
 
 
 
+
+/* ---------------------------------------------------------------------- */
 /* Infobox */
+/* ---------------------------------------------------------------------- */
 
 :root {
   --color-infobox: #ffc;
@@ -311,7 +417,13 @@ a[href].post-tag:focus {
   margin: 0;
 }
 
+
+
+
+/* ---------------------------------------------------------------------- */
 /* Direct Links / Markdown Headers */
+/* ---------------------------------------------------------------------- */
+
 .direct-link {
   font-family: var(--font-family-display);
   text-decoration: none;
